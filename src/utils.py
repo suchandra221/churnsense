@@ -21,3 +21,14 @@ def call_llm(
     )
 
     return response.choices[0].message.content
+
+import pandas as pd
+
+def load_data(path):
+    return pd.read_csv(path)
+
+def churn_rate(y):
+    return round(y.mean() * 100, 2)
+
+def get_feature_columns(df, target="Churn"):
+    return [col for col in df.columns if col != target]
